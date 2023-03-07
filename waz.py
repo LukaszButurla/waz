@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 def waz():
@@ -6,15 +7,53 @@ def waz():
     oknoGry = pygame.display.set_mode((800, 800),0,32)
     pygame.display.set_caption("Snake")
     run = True
+    zmiennaX = 400
+    zmiennaY = 400
+    jablkoX = random.randint(0, 19) * 40
+    jablkoY = random.randint(0, 19) * 40
+    score = 0    
+    
     while run:
         oknoGry.fill((0,0,0))
         pygame.time.delay(200)
+
+
         for zdarzenia in pygame.event.get():
             if zdarzenia.type==pygame.QUIT:
                 run = False
+            elif zdarzenia.type==pygame.KEYDOWN:
 
-        ksztaltWaz = pygame.Rect((400, 400), (40, 40))
+                match(zdarzenia.key):
+                    case pygame.K_DOWN:
+                        if zmiennaY < 760:
+                            zmiennaY += 40
+                    case pygame.K_LEFT:
+                        if zmiennaX > 0:
+                            zmiennaX -= 40
+                    case pygame.K_RIGHT:
+                        if zmiennaX < 760:
+                            zmiennaX += 40
+                    case pygame.K_UP:
+                        if zmiennaY > 0:
+                            zmiennaY -= 40
+
+
+
+            
+
+        ksztaltWaz = pygame.Rect((zmiennaX, zmiennaY), (40, 40))
         pygame.draw.rect(oknoGry, (100, 100, 100), ksztaltWaz)
+
+        if zmiennaX==jablkoX and zmiennaY==jablkoY:
+            jablkoX = random.randint(0, 19) * 40
+            jablkoY = random.randint(0, 19) * 40
+            score += 1
+
+        ksztaltJablko = pygame.draw.circle(oknoGry, (255, 0, 0), (jablkoX + 20, jablkoY + 20), 20)
+        czcionka = pygame.font.SysFont("Arial", 25)
+        tekst = czcionka.render("Zdobyte puknty: {}".format(score), 1, (150, 200, 75))
+        oknoGry.blit(tekst, (10, 10))
+
 
         pygame.display.update()
 
