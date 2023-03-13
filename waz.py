@@ -12,6 +12,7 @@ def waz():
     jablkoX = random.randint(0, 19) * 40
     jablkoY = random.randint(0, 19) * 40
     score = 0    
+    kierunek = [1, 0]
     
     while run:
         oknoGry.fill((0,0,0))
@@ -25,18 +26,25 @@ def waz():
 
                 match(zdarzenia.key):
                     case pygame.K_DOWN:
-                        if zmiennaY < 760:
-                            zmiennaY += 40
+                            kierunek = [0, 1]
                     case pygame.K_LEFT:
-                        if zmiennaX > 0:
-                            zmiennaX -= 40
+                            kierunek = [-1, 0]
                     case pygame.K_RIGHT:
-                        if zmiennaX < 760:
-                            zmiennaX += 40
+                            kierunek = [1, 0]
                     case pygame.K_UP:
-                        if zmiennaY > 0:
-                            zmiennaY -= 40
+                            kierunek = [0, -1]
 
+        zmiennaX = zmiennaX+kierunek[0]*40
+        zmiennaY = zmiennaY+kierunek[1]*40
+
+        if zmiennaY < 0:
+            zmiennaY = 760        
+        if zmiennaY > 760:
+            zmiennaY = 0
+        if zmiennaX < 0:
+            zmiennaX = 760
+        if zmiennaX > 760:
+            zmiennaX = 0
 
 
             
