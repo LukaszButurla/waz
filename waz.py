@@ -1,6 +1,6 @@
 import pygame
 import random
-
+from snake import Waz
 
 def waz():
     pygame.init()
