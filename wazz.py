@@ -20,9 +20,10 @@ def waz():
     run=True
    
     #pozycja startowa jabłka
-    jablkoX=random.randint(0,19)*30
-    jablkoY=random.randint(0,19)*30
-    punkty=0
+    jablko.randomPosition()
+    # jablkoX=random.randint(0,19)*30
+    # jablkoY=random.randint(0,19)*30
+    # punkty=0
 
     #pętla while sprawdza czy warunek w zmiennej run jest prawdziwy, jak jest nieprawdziwy kończy swoje działanie
     while(run):
@@ -50,15 +51,18 @@ def waz():
                 
         #pozycja głowy weza
         glowa=obiektWaz1.getHeadPosition()
+        pozycjaJablka = jablko.getPosition()
         #zjadanie jabłka
-        if glowa[0]==jablkoX and glowa[1] == jablkoY:
-            jablkoX=random.randint(0,19)*30
-            jablkoY=random.randint(0,19)*30
+        if glowa[0]==pozycjaJablka[0] and glowa[1] == pozycjaJablka[1]:
+            # jablkoX=random.randint(0,19)*30
+            # jablkoY=random.randint(0,19)*30
+            jablko.randomPosition()
             obiektWaz1.addScore()
             obiektWaz1.addLength()
 
         #rysowanie jabłka
-        pygame.draw.circle(oknoGry,(255,0,0),(jablkoX+15,jablkoY+15),15)
+        # pygame.draw.circle(oknoGry,(255,0,0),(jablkoX+15,jablkoY+15),15)
+        jablko.drawApple(oknoGry)
         #rysowanie węża
         obiektWaz1.snakeDraw(oknoGry)
        
