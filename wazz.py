@@ -6,7 +6,7 @@ from jablko import Jablko
 
 #tworzenie obiektu wąż
 obiektWaz1=wazKlasa.WazKlas()
-jablko = Jablko()
+iloscJablek = 10
 
 #utworzenie funkcji waz
 def waz():
@@ -20,7 +20,11 @@ def waz():
     run=True
    
     #pozycja startowa jabłka
-    jablko.randomPosition()
+    wszystkieJablka = []
+
+    for numer in range(0, iloscJablek):
+        wszystkieJablka.append(Jablko())
+    # jablko.randomPosition()
     # jablkoX=random.randint(0,19)*30
     # jablkoY=random.randint(0,19)*30
     # punkty=0
@@ -51,18 +55,19 @@ def waz():
                 
         #pozycja głowy weza
         glowa=obiektWaz1.getHeadPosition()
-        pozycjaJablka = jablko.getPosition()
         #zjadanie jabłka
-        if glowa[0]==pozycjaJablka[0] and glowa[1] == pozycjaJablka[1]:
-            # jablkoX=random.randint(0,19)*30
-            # jablkoY=random.randint(0,19)*30
-            jablko.randomPosition()
-            obiektWaz1.addScore()
-            obiektWaz1.addLength()
+        for nrJablko in wszystkieJablka:
+            pozycjaJablka = nrJablko.getPosition()
+            if glowa[0]==pozycjaJablka[0] and glowa[1] == pozycjaJablka[1]:
+                # jablkoX=random.randint(0,19)*30
+                # jablkoY=random.randint(0,19)*30
+                nrJablko.randomPosition()
+                obiektWaz1.addScore()
+                obiektWaz1.addLength()
 
+            nrJablko.drawApple(oknoGry)
         #rysowanie jabłka
         # pygame.draw.circle(oknoGry,(255,0,0),(jablkoX+15,jablkoY+15),15)
-        jablko.drawApple(oknoGry)
         #rysowanie węża
         obiektWaz1.snakeDraw(oknoGry)
        
