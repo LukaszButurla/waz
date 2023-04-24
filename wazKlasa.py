@@ -28,9 +28,10 @@ class WazKlas():
     def snakeMove(self):
         #pobranie ostatnie pozycji glowy węża
         ostatniaPozycja=self.getHeadPosition()
+        self.checkCollision(ostatniaPozycja)
         #ustalenie nowej pozycji węża
-        zmiennaX=ostatniaPozycja[0]+self.kierunek[0]*30;
-        zmiennaY=ostatniaPozycja[1]+self.kierunek[1]*30;
+        zmiennaX=ostatniaPozycja[0]+self.kierunek[0]*30
+        zmiennaY=ostatniaPozycja[1]+self.kierunek[1]*30
         #sprawdzenie położenia weża względem krawędzi
         noweWspolrzedne=self.checkBorder(zmiennaX,zmiennaY)
         #dodanie pozycji węża do listy
@@ -38,6 +39,12 @@ class WazKlas():
         #sprawdzenie czy wąż nie jest za długi
         if len(self.pozycje)>self.dlugosc:
             del self.pozycje[0]
+
+    def checkCollision(self, pos):
+        if pos in self.pozycje[:-1]:
+            self.pozycje = [pos]
+            self.dlugosc = 1
+            self.punkty = 0            
     
     #sprawdzanie krawędzi okna
     def checkBorder(self,zmiennaX,zmiennaY):
