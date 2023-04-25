@@ -79,4 +79,4 @@ def waz():
         pygame.display.update()
 
 #wywołanie funkcji, pozwala na uruchomienie gry
-waz()
+# waz()
