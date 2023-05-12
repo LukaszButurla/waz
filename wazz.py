@@ -8,6 +8,11 @@ from jablko import Jablko
 obiektWaz1=wazKlasa.WazKlas()
 obiektWaz2=wazKlasa.WazKlas()
 iloscJablek = 1
+def ustawKolorWaz1(kolor):
+    obiektWaz1.setColor(kolor)
+
+def ustawKolorWaz2(kolor):
+    obiektWaz2.setColor(kolor)
 
 #utworzenie funkcji waz
 def waz():
