@@ -1,4 +1,6 @@
 import pygame
+import random
+import wazz
 
 
 class WazKlas():
@@ -69,3 +71,14 @@ class WazKlas():
             ksztaltWaz=pygame.Rect((poz[0],poz[1]),(30,30))
             #dodanie kształtu do okienka
             pygame.draw.rect(oknoGry,(self.kolor),ksztaltWaz)
+
+    def getPunkty(self):
+        return self.punkty
+
+    def pozarcie(self, pozycjaGlowy):
+        for czesciCiala in self.pozycje[::]:
+            if pozycjaGlowy[0] == czesciCiala[0] and pozycjaGlowy[1] == czesciCiala[1]:
+                self.dlugosc = 1
+                self.punkty = 0
+                self.pozycje = [(random.randint(0,wazz.rozdzialczosc)*30, random.randint(0,wazz.rozdzialczosc)*30)]
+                

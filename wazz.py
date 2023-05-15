@@ -5,6 +5,7 @@ import wazKlasa
 from jablko import Jablko
 
 #tworzenie obiektu wąż
+rozdzialczosc = 19
 obiektWaz1=wazKlasa.WazKlas()
 obiektWaz2=wazKlasa.WazKlas()
 iloscJablek = 1
@@ -96,6 +97,10 @@ def waz():
         #rysowanie jabłka
         # pygame.draw.circle(oknoGry,(255,0,0),(jablkoX+15,jablkoY+15),15)
         #rysowanie węża
+
+        obiektWaz1.pozarcie(glowa2)
+        obiektWaz2.pozarcie(glowa)
+
         obiektWaz1.snakeDraw(oknoGry)
         obiektWaz2.snakeDraw(oknoGry)
        

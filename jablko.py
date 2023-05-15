@@ -1,5 +1,6 @@
 import random
 import pygame
+import wazz
 
 class Jablko():
     def __init__(self):
@@ -8,8 +9,8 @@ class Jablko():
         self.getPosition()
 
     def randomPosition(self):
-        jablkoX=random.randint(0,19)*30
-        jablkoY=random.randint(0,19)*30
+        jablkoX=random.randint(0,wazz.rozdzialczosc)*30
+        jablkoY=random.randint(0,wazz.rozdzialczosc)*30
         self.setPosition(jablkoX, jablkoY)
 
     def getPosition(self):

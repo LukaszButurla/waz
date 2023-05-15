@@ -23,7 +23,7 @@ def main():
     menu.add.selector("Ilość jabłek", [("jedno", 1), ("dwa", 2), ("pięć", 5), ("dziesięć", 10), ("dwadzieścia", 20)], onchange=zmienJablka)   
     menu.add.color_input("Kolor gracza 1: ", "rgb", default=(100,100,100), onreturn=zmienKolorWaz1)
     menu.add.color_input("Kolor gracza 1: ", "rgb", default=(100,100,100), onreturn=zmienKolorWaz2)
-    menu.add.selector("Wybierz rozmiar okna: ", [("600x600", (600,600)), ("900x600", (900,600)), ("900x900", (900,900)) ("1200x900", (1200,900))])
+    menu.add.selector("Wybierz rozmiar okna: ", [("600x600", (600,600)), ("900x600", (900,600)), ("900x900", (900,900)), ("1200x900", (1200,900))])
 
     menu.mainloop(oknoGry)
 
