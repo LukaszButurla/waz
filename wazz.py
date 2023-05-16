@@ -6,6 +6,7 @@ from jablko import Jablko
 
 #tworzenie obiektu wąż
 rozdzialczosc = 19
+rozmiarOkna = (600,600)
 obiektWaz1=wazKlasa.WazKlas()
 obiektWaz2=wazKlasa.WazKlas()
 iloscJablek = 1
@@ -15,12 +16,17 @@ def ustawKolorWaz1(kolor):
 def ustawKolorWaz2(kolor):
     obiektWaz2.setColor(kolor)
 
+def ustawRozmiar(rozmiar):
+    rozmiarOkna = rozmiar
+    print(rozmiarOkna[0], rozmiarOkna[1])
+
 #utworzenie funkcji waz
 def waz():
+    print("start", rozmiarOkna)
     #inicjalizacja biblioteki
     pygame.init()
     #utworzenie okna gry i okreslenie jego rozmiarów
-    oknoGry=pygame.display.set_mode((600,600),0,32)
+    oknoGry=pygame.display.set_mode((rozmiarOkna[0],rozmiarOkna[1]),0,32)
     #ustawiamy nazwę okienka
     pygame.display.set_caption("Gra Wąż")
     #tworzymy zmienną, która przechowuje informacje czy gra jest uruchomiona
