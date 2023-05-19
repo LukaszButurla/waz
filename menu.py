@@ -2,8 +2,11 @@ import pygame_menu
 import pygame
 import wazz
 
+rozdzielczosc = (600, 600)
+
 def wlacz_gre():
-    wazz.waz()
+    print(rozdzielczosc)
+    wazz.waz(rozdzielczosc)
 
 def zmienJablka(tekst, ilosc):
     iloscJablek = ilosc
@@ -15,7 +18,7 @@ def zmienKolorWaz2(kolor):
     wazz.ustawKolorWaz2(kolor)
 
 def zmienRozmiar(x, rozmiar):
-    wazz.ustawRozmiar(rozmiar)
+    wazz.rozmiarOkna = rozmiar
 
 def main():
     pygame.init()

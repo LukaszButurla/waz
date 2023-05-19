@@ -6,6 +6,7 @@ import wazz
 class WazKlas():
     #konstruktor klasy - uruchamia się podczas tworzenia obiektu
     def __init__(self):
+        self.rozdzielczosc = (600,600)
         self.pozycje=[(300,300)]
         self.dlugosc=1
         self.kierunek=[0,1]

@@ -21,12 +21,12 @@ def ustawRozmiar(rozmiar):
     print(rozmiarOkna[0], rozmiarOkna[1])
 
 #utworzenie funkcji waz
-def waz():
+def waz(rozmiar):
     print("start", rozmiarOkna)
     #inicjalizacja biblioteki
     pygame.init()
     #utworzenie okna gry i okreslenie jego rozmiarów
-    oknoGry=pygame.display.set_mode((rozmiarOkna[0],rozmiarOkna[1]),0,32)
+    oknoGry=pygame.display.set_mode(rozmiarOkna,0,32)
     #ustawiamy nazwę okienka
     pygame.display.set_caption("Gra Wąż")
     #tworzymy zmienną, która przechowuje informacje czy gra jest uruchomiona
