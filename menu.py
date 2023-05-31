@@ -9,7 +9,7 @@ def wlacz_gre():
     wazz.waz(rozdzielczosc)
 
 def zmienJablka(tekst, ilosc):
-    iloscJablek = ilosc
+    wazz.iloscJablek = ilosc
 
 def zmienKolorWaz1(kolor):
     wazz.ustawKolorWaz1(kolor)

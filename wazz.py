@@ -7,8 +7,8 @@ from jablko import Jablko
 #tworzenie obiektu wąż
 rozdzialczosc = 19
 rozmiarOkna = (600,600)
-obiektWaz1=wazKlasa.WazKlas()
-obiektWaz2=wazKlasa.WazKlas()
+obiektWaz1=wazKlasa.WazKlas(rozmiarOkna)
+obiektWaz2=wazKlasa.WazKlas(rozmiarOkna)
 iloscJablek = 1
 def ustawKolorWaz1(kolor):
     obiektWaz1.setColor(kolor)
@@ -22,7 +22,8 @@ def ustawRozmiar(rozmiar):
 
 #utworzenie funkcji waz
 def waz(rozmiar):
-    print("start", rozmiarOkna)
+    obiektWaz1.ustawRozdzielczosc(rozmiarOkna)
+    obiektWaz2.ustawRozdzielczosc(rozmiarOkna)    
     #inicjalizacja biblioteki
     pygame.init()
     #utworzenie okna gry i okreslenie jego rozmiarów
@@ -36,7 +37,7 @@ def waz(rozmiar):
     wszystkieJablka = []
 
     for numer in range(0, iloscJablek):
-        wszystkieJablka.append(Jablko())
+        wszystkieJablka.append(Jablko(rozmiarOkna))
     # jablko.randomPosition()
     # jablkoX=random.randint(0,19)*30
     # jablkoY=random.randint(0,19)*30

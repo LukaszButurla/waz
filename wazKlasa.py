@@ -5,8 +5,8 @@ import wazz
 
 class WazKlas():
     #konstruktor klasy - uruchamia się podczas tworzenia obiektu
-    def __init__(self):
-        self.rozdzielczosc = (600,600)
+    def __init__(self, rozdzielczosc):
+        self.rozdzielczosc = rozdzielczosc
         self.pozycje=[(300,300)]
         self.dlugosc=1
         self.kierunek=[0,1]
@@ -19,6 +19,9 @@ class WazKlas():
     def getHeadPosition(self):
         return self.pozycje[-1]
     #wykonanie ruchu przez węża
+
+    def ustawRozdzielczosc(self, rozdzielczosc):
+        self.rozdzielczosc = rozdzielczosc
 
     def setColor(self, color):
         self.kolor = color
@@ -56,11 +59,11 @@ class WazKlas():
     #sprawdzanie krawędzi okna
     def checkBorder(self,zmiennaX,zmiennaY):
          #sprawdzanie krawędzi
-        if zmiennaX>=600:
+        if zmiennaX>=self.rozdzielczosc[0]:
             zmiennaX=0
         if zmiennaX<0:
             zmiennaX=600-30
-        if zmiennaY>=600:
+        if zmiennaY>=self.rozdzielczosc[1]:
             zmiennaY=0
         if zmiennaY<0:
             zmiennaY=600-30

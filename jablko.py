@@ -3,14 +3,19 @@ import pygame
 import wazz
 
 class Jablko():
-    def __init__(self):
+    def __init__(self, rozdzielczosc):
+        self.rozdzielczosc = (rozdzielczosc[0]/30, rozdzielczosc[1]/30)
         self.pozycja = [(1,1)]
         self.randomPosition()
         self.getPosition()
 
+    def ustawRozdzielczosc(self, rozdzielczosc):
+        self.rozdzielczosc = rozdzielczosc
+
+
     def randomPosition(self):
-        jablkoX=random.randint(0,wazz.rozdzialczosc)*30
-        jablkoY=random.randint(0,wazz.rozdzialczosc)*30
+        jablkoX=random.randint(0,self.rozdzielczosc[0])*30
+        jablkoY=random.randint(0,self.rozdzielczosc[1])*30
         self.setPosition(jablkoX, jablkoY)
 
     def getPosition(self):
