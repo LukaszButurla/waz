@@ -110,15 +110,28 @@ def waz(rozmiar):
 
         obiektWaz1.snakeDraw(oknoGry)
         obiektWaz2.snakeDraw(oknoGry)
+
+        with open(r"data\score.txt", "r") as file:
+            bestScore = file.read()
+
        
         #napisy na ekranie
         czcionka=pygame.font.SysFont('arial',25)
         tekst=czcionka.render("Zdobyłeś punkty: {0}".format(obiektWaz1.punkty),1,(51,51,255))
         tekst2=czcionka.render("Zdobyłeś punkty: {0}".format(obiektWaz2.punkty),1,(51,51,255))
+        rekord=czcionka.render("Najlepszy wynik: {0}".format(bestScore),1,(255,0,0))
         oknoGry.blit(tekst,(10,10))
         oknoGry.blit(tekst2,(300,10))
+        oknoGry.blit(rekord,(10,45))
         #aktualizowanie zawartości okna gry
         pygame.display.update()
+
+    else:
+        points = [str(obiektWaz1.punkty), str(obiektWaz2.punkty), str(bestScore)]
+        points.sort()
+        print(points)
+        with open(r"data\score.txt", "w") as file:
+            file.write(points[2])
 
 #wywołanie funkcji, pozwala na uruchomienie gry
 # waz()
